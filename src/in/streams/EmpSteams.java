@@ -35,6 +35,8 @@ ArrayList<Employee> employeeList = new ArrayList<>();
 List<Employee> collect = employeeList.stream().sorted(Comparator.comparing(Employee::getSalary).thenComparing(Employee::getName).reversed()).collect(Collectors.toList());
 
 collect.forEach(System.out::println);	
+Optional<Employee> min = employeeList.stream().filter(e->e.getGender().equalsIgnoreCase("male")).min(Comparator.comparing(Employee::getAge));
+System.out.println("younger employee in organazation --"+min.get());
 	
 	}
 }
